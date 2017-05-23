@@ -12,7 +12,7 @@
                    VerticalOptions="Center" 
            HorizontalOptions="Center"/>-->
     <ContentPage.ToolbarItems>
-        <ToolbarItem Name="MenuItem1" Order="Primary"  Text="item1" Priority="0" />
+        <ToolbarItem Name="MenuItem1" Order="Primary"  Text="item1neco" Priority="0" />
         <ToolbarItem Name="MenuItem2" Order="Primary"  Text="Item 2" Priority="1" />
     </ContentPage.ToolbarItems>
     
