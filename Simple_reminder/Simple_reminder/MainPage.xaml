@@ -3,7 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Simple_reminder"
              x:Class="Simple_reminder.MainPage">
-    <DatePicker></DatePicker>
+    <StackLayout>
+        <DatePicker></DatePicker>
+        <TimePicker></TimePicker>
+        <Picker x:Name="picker" Title="Titulek pickeru">
+        </Picker>
+    </StackLayout>
+    
 
     <!--<Label Text="Welcome to Xamarin Forms :)) !" 
            VerticalOptions="Center" 
@@ -15,5 +21,6 @@
         <ToolbarItem Name="MenuItem1" Order="Primary"  Text="item1neco" Priority="0" />
         <ToolbarItem Name="MenuItem2" Order="Primary"  Text="Item 2" Priority="1" />
     </ContentPage.ToolbarItems>
+    
     
 </ContentPage>

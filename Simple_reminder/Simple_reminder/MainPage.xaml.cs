@@ -12,6 +12,18 @@ namespace Simple_reminder
         public MainPage()
         {
             InitializeComponent();
+
+            var monkeyList = new List<string>();
+            monkeyList.Add("Baboon");
+            monkeyList.Add("Capuchin Monkey");
+            monkeyList.Add("Blue Monkey");
+            monkeyList.Add("Squirrel Monkey");
+            monkeyList.Add("Golden Lion Tamarin");
+            monkeyList.Add("Howler Monkey");
+            monkeyList.Add("Japanese Macaque");
+
+            //var picker = new Picker();
+            picker.ItemsSource = monkeyList;
         }
     }
 }
