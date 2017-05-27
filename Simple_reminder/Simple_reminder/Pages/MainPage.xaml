@@ -2,25 +2,18 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Simple_reminder"
-             x:Class="Simple_reminder.MainPage">
-    <StackLayout>
-        <DatePicker></DatePicker>
-        <TimePicker></TimePicker>
-        <Picker x:Name="picker" Title="Titulek pickeru">
-        </Picker>
-    </StackLayout>
-    
-
-    <!--<Label Text="Welcome to Xamarin Forms :)) !" 
-           VerticalOptions="Center" 
-           HorizontalOptions="Center" />
-    <Label Text="ahoj2"
-                   VerticalOptions="Center" 
-           HorizontalOptions="Center"/>-->
+             x:Class="Simple_reminder.MainPage"
+             Title="Simple Reminder">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Name="MenuItem1" Order="Primary"  Text="item1neco" Priority="0" />
-        <ToolbarItem Name="MenuItem2" Order="Primary"  Text="Item 2" Priority="1" />
+        <ToolbarItem Name="AddCategory" Order="Primary" Activated="AddCategory_Clicked" Text="Přidat Kategorii" Priority="0" />
     </ContentPage.ToolbarItems>
-    
-    
+    <StackLayout>
+        <Button Text="Button" Clicked="Add_Button"></Button>
+    </StackLayout>
+
+    <!--<StackLayout>
+        <ListView>
+
+        </ListView>
+    </StackLayout>-->
 </ContentPage>

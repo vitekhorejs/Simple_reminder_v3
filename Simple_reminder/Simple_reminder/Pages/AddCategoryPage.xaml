@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Simple_reminder.AddCategoryPage"
+             Title="Přidat Kategorii">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="Back" Order="Primary" Activated="Back_Clicked" Text="Zpět" Priority="0" />
+        <ToolbarItem Name="Save" Order="Primary" Activated="SaveCategory_Clicked" Text="Uložit" Priority="0" />
+    </ContentPage.ToolbarItems>
+    <StackLayout>
+        <Label Text="Ahoj"></Label>
+    </StackLayout>
+</ContentPage>

@@ -12,6 +12,9 @@ namespace Simple_reminder
         public App()
         {
             InitializeComponent();
+            //List<Category> categories = new List<Category>;
+            
+            
 
             MainPage = new NavigationPage(new Simple_reminder.MainPage());
         }
@@ -30,5 +33,8 @@ namespace Simple_reminder
         {
             // Handle when your app resumes
         }
+
+        
+
     }
 }

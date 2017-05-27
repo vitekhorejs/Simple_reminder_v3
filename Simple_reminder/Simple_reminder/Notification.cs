@@ -7,12 +7,12 @@ using SQLite;
 
 namespace Simple_reminder
 {
-    class Notification
+    public class Notification
     {
         [PrimaryKey, AutoIncrement]
-        int Id { get; set; }
-        string Name { get; set; }
-        string Text { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Text { get; set; }
 
     }
 }

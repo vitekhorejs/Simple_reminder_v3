@@ -7,11 +7,16 @@ using SQLite;
 
 namespace Simple_reminder
 {
-    class Category
+    public class Category
     {
         [PrimaryKey, AutoIncrement]
-        int Id { get; set; }
-        string Name { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+
+        /*public Category(string name)
+        {
+            Name = name;
+        }*/
 
     }
 }
