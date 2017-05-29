@@ -12,53 +12,25 @@ namespace Simple_reminder
         public MainPage()
         {
             InitializeComponent();
+            InitDB();
+            GetItemsToListView();
 
-            List<Category> categories = new List<Category>();
-            //Category category = new Category();
-            //category.Name = "Škola";
-
-            categories.Add(new Category());
-            categories.Add(new Category("Práce"));
-            categories.Add(new Category("Volný čas"));
-
-            foreach(Category item in categories )
-            {
-                Database.SaveItemAsync(item);
-            }
-            
-
-            /*var monkeyList = new List<string>();
-            monkeyList.Add("Baboon");
-            monkeyList.Add("Capuchin Monkey");
-            monkeyList.Add("Blue Monkey");
-            monkeyList.Add("Squirrel Monkey");
-            monkeyList.Add("Golden Lion Tamarin");
-            monkeyList.Add("Howler Monkey");
-            monkeyList.Add("Japanese Macaque");*/
-
-            //var picker = new Picker();
-            //picker.ItemsSource = monkeyList;
-            //NavigationPage.SetBackButtonTitle(page, "");
         }
 
-        private static SP_Database _database;
+        private static SR_Database _database;
 
-        public static SP_Database Database
+        public static SR_Database Database
         {
             get
             {
                 if (_database == null)
                 {
-                    _database = new SP_Database(DependencyService.Get<IFileHelper>().GetLocalFilePath("TodoSQLite.db3"));
+                    _database = new SR_Database(DependencyService.Get<IFileHelper>().GetLocalFilePath("SR_database.db3"));
                 }
                 return _database;
             }
         }
 
-        /*public void ToPage(Object sender, EventArgs e)
-        {
-            Navigation.PushModalAsync(new Page1());
-        }*/
         public void Add_Button(Object sender, EventArgs e)
         {
             Navigation.PushModalAsync(new NavigationPage(new AddPage()));
@@ -67,7 +39,60 @@ namespace Simple_reminder
         public void AddCategory_Clicked(Object sender, EventArgs e)
         {
             Navigation.PushModalAsync(new NavigationPage(new AddCategoryPage()));
-            //MainPage = new NavigationPage(new Simple_reminder.MainPage());
         }
-    }
+
+        private void GetItemsToListView()
+        {
+            var itemsFromDb = Database.GetCategoriesAsync().Result;
+            ListView.ItemsSource = itemsFromDb;
+        }
+
+        private void GetContact(object sender, ItemTappedEventArgs e)
+        {
+           // Navigation.PushModalAsync(new DetailPage(e.Item as Contact));
+        }
+
+        public void InitDB()
+        {
+            var itemsFromDb = Database.GetCategoriesAsync().Result;
+            if (itemsFromDb.Count() == 0)
+            {
+                /*List<Category> categories = new List<Category>();
+                Category category = new Category
+                {
+                    Name = "Škola"
+                };
+                categories.Add(category);
+                Category category1 = new Category
+                {
+                    Name = "Práce"
+                };
+                categories.Add(category);
+                Category category2 = new Category
+                {
+                    Name = "Volný čas"
+                };
+                categories.Add(category);
+
+                foreach (Category item in categories)
+                {
+                    item.Name = item.Name;
+                    Database.SaveItemAsync(item);
+                }*/
+                Category category1 = new Category();
+                category1.Name = "Škola";
+                Database.SaveItemAsync(category1);
+
+                Category category2 = new Category();
+                category2.Name = "Práce";
+                Database.SaveItemAsync(category2);
+
+                Category category3 = new Category();
+                category3.Name = "Volný čas";
+                Database.SaveItemAsync(category3);
+            }
+
+        }
+        
+}
 }

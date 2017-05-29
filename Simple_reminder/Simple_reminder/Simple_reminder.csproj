@@ -45,7 +45,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Category.cs" />
-    <Compile Include="Database\SP_Database.cs" />
+    <Compile Include="Database\SR_Database.cs" />
     <Compile Include="Database\IFileHelper.cs" />
     <Compile Include="Pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>

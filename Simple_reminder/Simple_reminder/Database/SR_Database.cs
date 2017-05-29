@@ -8,11 +8,11 @@ using Xamarin.Forms;
 
 namespace Simple_reminder
 {
-    public class SP_Database
+    public class SR_Database
     {
         private SQLiteAsyncConnection database;
 
-        public SP_Database(string dbPath)
+        public SR_Database(string dbPath)
         {
             database = new SQLiteAsyncConnection(dbPath);
             database.CreateTableAsync<Category>().Wait();

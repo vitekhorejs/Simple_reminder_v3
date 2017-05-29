@@ -10,10 +10,18 @@
     <StackLayout>
         <Button Text="Button" Clicked="Add_Button"></Button>
     </StackLayout>
-
-    <!--<StackLayout>
-        <ListView>
-
+    <StackLayout>
+        <ListView x:Name="ListView" ItemTapped="GetContact" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid >
+                            <Label Text="{Binding GetName}" FontAttributes="Bold" VerticalTextAlignment="Start"></Label>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
-    </StackLayout>-->
+    </StackLayout>
+
 </ContentPage>

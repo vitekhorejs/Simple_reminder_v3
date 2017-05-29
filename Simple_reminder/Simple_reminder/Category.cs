@@ -13,10 +13,7 @@ namespace Simple_reminder
         public int Id { get; set; }
         public string Name { get; set; }
 
-        /*public Category(string name)
-        {
-            Name = name;
-        }*/
+        public string GetName => Name;
 
     }
 }
