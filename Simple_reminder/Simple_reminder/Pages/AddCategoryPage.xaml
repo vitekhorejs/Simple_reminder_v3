@@ -8,6 +8,6 @@
         <ToolbarItem Name="Save" Order="Primary" Activated="SaveCategory_Clicked" Text="Uložit" Priority="0" />
     </ContentPage.ToolbarItems>
     <StackLayout>
-        <Label Text="Ahoj"></Label>
+        <Label Text="AhojHello"></Label>
     </StackLayout>
 </ContentPage>
