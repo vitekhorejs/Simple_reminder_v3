@@ -11,7 +11,7 @@ namespace Simple_reminder
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
-        public string Names { get; set; }
+        public string Name { get; set; }
         public string Text { get; set; }
 
         public Category Category_ID
