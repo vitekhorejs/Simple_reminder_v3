@@ -21,7 +21,6 @@ namespace Simple_reminder
             //Navigation.PushModalAsync(new AddPage());
         }
 
-
         public void Back_Clicked(Object sender, EventArgs e)
         {
             Navigation.PushModalAsync(new NavigationPage(new MainPage()));

@@ -14,7 +14,6 @@ namespace Simple_reminder
             InitializeComponent();
             InitDB();
             GetItemsToListView();
-
         }
 
         private static SR_Database _database;
@@ -57,28 +56,6 @@ namespace Simple_reminder
             var itemsFromDb = Database.GetCategoriesAsync().Result;
             if (itemsFromDb.Count() == 0)
             {
-                /*List<Category> categories = new List<Category>();
-                Category category = new Category
-                {
-                    Name = "Škola"
-                };
-                categories.Add(category);
-                Category category1 = new Category
-                {
-                    Name = "Práce"
-                };
-                categories.Add(category);
-                Category category2 = new Category
-                {
-                    Name = "Volný čas"
-                };
-                categories.Add(category);
-
-                foreach (Category item in categories)
-                {
-                    item.Name = item.Name;
-                    Database.SaveItemAsync(item);
-                }*/
                 Category category1 = new Category();
                 category1.Name = "Škola";
                 Database.SaveItemAsync(category1);
@@ -91,8 +68,6 @@ namespace Simple_reminder
                 category3.Name = "Volný čas";
                 Database.SaveItemAsync(category3);
             }
-
-        }
-        
-}
+        }      
+    }
 }

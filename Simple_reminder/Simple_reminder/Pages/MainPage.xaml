@@ -7,10 +7,9 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem Name="AddCategory" Order="Primary" Activated="AddCategory_Clicked" Text="Přidat Kategorii" Priority="0" />
     </ContentPage.ToolbarItems>
+
     <StackLayout>
-        <Button Text="Button" Clicked="Add_Button"></Button>
-    </StackLayout>
-    <StackLayout>
+        <Button Text="Button" Clicked="Add_Button" ></Button>
         <ListView x:Name="ListView" ItemTapped="GetContact" >
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -23,5 +22,4 @@
             </ListView.ItemTemplate>
         </ListView>
     </StackLayout>
-
 </ContentPage>
