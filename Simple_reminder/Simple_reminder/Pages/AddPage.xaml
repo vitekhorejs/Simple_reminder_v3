@@ -4,10 +4,13 @@
              x:Class="Simple_reminder.AddPage"
              Title="Přidat událost">
     <StackLayout>
-        <DatePicker></DatePicker>
-        <TimePicker></TimePicker>
+        <Entry Placeholder="Název upomínky"></Entry>
         <Picker x:Name="picker" Title="Vyberte Kategorii">
         </Picker>
+        <DatePicker></DatePicker>
+        <TimePicker></TimePicker>
+        <Label Text="Popis"></Label>
+        <Editor x:Name="Description" ></Editor>
     </StackLayout>
 
     <ContentPage.ToolbarItems>

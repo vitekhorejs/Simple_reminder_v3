@@ -14,11 +14,13 @@ namespace Simple_reminder
         public AddPage()
         {
             InitializeComponent();
+            Description.HeightRequest = 50;
         }
 
         public void Save_Clicked(Object sender, EventArgs e)
         {
             //Navigation.PushModalAsync(new AddPage());
+
         }
 
         public void Back_Clicked(Object sender, EventArgs e)
