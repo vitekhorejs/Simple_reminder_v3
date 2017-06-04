@@ -12,6 +12,10 @@ namespace Simple_reminder
     public partial class AddPage : ContentPage
     {
         public int Id;
+        public int Cat_Id;
+        public Reminder obj;
+        public Category itemsFromDb;
+
         public AddPage()
         {
             InitializeComponent();
@@ -21,14 +25,20 @@ namespace Simple_reminder
         public AddPage(Reminder reminder)
         {
             InitializeComponent();
-            GetItemsToPicker();
-            //obj = book;
+            
+            obj = reminder;
             Id = reminder.Id;
             name.Text = reminder.Name;
-            Category.SelectedItem = reminder.Category_Id;
+            Cat_Id = reminder.Category_Id;
+           // itemFromDb = Database.GetCategoryById(reminder.Category_Id).Result;
+
+
+            //Category.SelectedItem = itemFromDb.GetName;
+            //Category.SelectedItem = itemsFromDb.Where(p => p.ProjectID == 2).First();
             Date.Date = reminder.DateTime;
             Time.Time = reminder.DateTime.TimeOfDay;
             Description.Text = reminder.Description;
+            GetItemsToPicker();
         }
         private static SR_Database _database;
 
@@ -42,6 +52,22 @@ namespace Simple_reminder
                 }
                 return _database;
             }
+        }
+
+        async private void Delete_Button(object sender, EventArgs e)
+        {
+            var ans = await DisplayAlert("Upozornění", "Opravdu chcete smazat tuto událost", "Ano", "Ne");
+            if (ans.Equals(true))
+            {
+                await Database.DeleteItemAsync(obj as Reminder);
+                DependencyService.Get<IPopUp>().ShowToast("Událost smazána");
+                await Navigation.PushModalAsync(new NavigationPage(new MainPage()));
+            }
+            else
+            {
+
+            }
+            //Database.DeleteItemAsync(obj as Reminder);
         }
 
         private void GetItemsToPicker()
@@ -58,6 +84,15 @@ namespace Simple_reminder
 
             var itemsFromDb = Database.GetCategoriesAsync().Result;
             Category.ItemsSource = itemsFromDb;
+            if (Cat_Id.Equals(0))
+            {
+
+            }
+            else
+            {
+                Category.SelectedItem = itemsFromDb.Where(p => p.Id == Cat_Id).First();
+            }
+            
         }
 
         public void Save_Clicked(Object sender, EventArgs e)
@@ -77,12 +112,20 @@ namespace Simple_reminder
                 {
                     Category neco = Category.SelectedItem as Category;
                     Reminder reminder = new Reminder();
+                    if (Id.Equals(null))
+                    {
+
+                    }
+                    else
+                    {
+                        reminder.Id = Id;
+                    }
                     reminder.Name = name.Text;
                     reminder.Category_Id = neco.Id;
                     reminder.Description = Description.Text;
                     reminder.DateTime = Date.Date + Time.Time;
                     Database.SaveItemAsync(reminder);
-                    DependencyService.Get<IPopUp>().ShowToast("Událsot uložena");
+                    DependencyService.Get<IPopUp>().ShowToast("Událost uložena");
                     Navigation.PushModalAsync(new NavigationPage(new MainPage()));
                 }
                 

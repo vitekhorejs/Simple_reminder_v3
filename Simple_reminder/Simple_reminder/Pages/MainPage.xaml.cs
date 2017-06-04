@@ -15,7 +15,8 @@ namespace Simple_reminder
             InitDB();
             GetItemsToPicker();
             GetItemsToListView();
-            
+
+
         }
 
 

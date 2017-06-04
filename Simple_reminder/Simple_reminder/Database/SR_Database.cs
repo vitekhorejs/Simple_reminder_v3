@@ -72,5 +72,10 @@ namespace Simple_reminder
         {
             return database.Table<Category>().Where(i => i.Id == Id).FirstOrDefaultAsync();
         }
+
+        public Task<int> DeleteItemAsync(Reminder item)
+        {
+            return database.DeleteAsync(item);
+        }
     }
 }

@@ -7,12 +7,13 @@
         <Label x:Name="EntryLabel" Text="Název události" TextColor="Black" Margin="15,10,10,-5" FontSize="Medium"></Label>
         <Entry x:Name="name" Margin="10,0,10,0"></Entry>
         <Label x:Name="PickerLabel" Text="Kategorie" TextColor="Black" Margin="15,10,10,-5" FontSize="Medium"></Label>
-        <Picker x:Name="Category" Title="" ItemDisplayBinding="{Binding Name}" Margin="10,0,10,0">
+        <Picker x:Name="Category" Title="" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding itemFromDb}" Margin="10,0,10,0">
         </Picker>
         <DatePicker x:Name="Date" Margin="10,0,10,0"></DatePicker>
         <TimePicker x:Name="Time" Margin="10,0,10,0"></TimePicker>
         <Label x:Name="DescriptionLabel" Text="Popis" TextColor="Black" Margin="15,10,10,-5" FontSize="Medium"></Label>
         <Editor x:Name="Description" Margin="10,0,10,0"></Editor>
+        <Button Text="Odstranit" Clicked="Delete_Button"  BackgroundColor="Black" TextColor="White" Margin="10,0,10,0"></Button>
     </StackLayout>
 
     <ContentPage.ToolbarItems>
