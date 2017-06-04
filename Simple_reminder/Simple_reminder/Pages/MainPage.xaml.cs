@@ -14,7 +14,7 @@ namespace Simple_reminder
             InitializeComponent();
             InitDB();
             GetItemsToPicker();
-            GetItemsToListView();
+            //GetItemsToListView();
 
 
         }
@@ -32,6 +32,25 @@ namespace Simple_reminder
                 }
                 return _database;
             }
+        }
+
+        public void OnPickerChanged(Object sender, EventArgs e)
+        {
+            Category category = picker.SelectedItem as Category;
+            if (category.Name == "Vše")
+            {
+                //DependencyService.Get<IPopUp>().ShowToast("vše");
+                List<Reminder> itemsFromDb = Database.GetRemindersAsync().Result;
+                ListView.ItemsSource = itemsFromDb;
+            }
+            else
+            {
+                
+                //DependencyService.Get<IPopUp>().ShowToast(category.SelectedItem.ToString());
+                List<Reminder> itemsFromDb = Database.GetReminderByCategoryId(category.Id).Result;
+                ListView.ItemsSource = itemsFromDb;
+            }
+            
         }
 
         public void Add_Button(Object sender, EventArgs e)
@@ -53,13 +72,15 @@ namespace Simple_reminder
         private void GetItemsToPicker()
         {
             List<Category> itemsFromDb = Database.GetCategoriesAsync().Result;
-            var CategoryList = new List<string>();
+            /*var CategoryList = new List<string>();
             foreach (Category item in itemsFromDb)
             {
                 CategoryList.Add(item.Name);
-            }
-            CategoryList.Insert(0, "Vše");
-            picker.ItemsSource = CategoryList;
+            }*/
+            Category category = new Category();
+            category.Name = "Vše";
+            itemsFromDb.Insert(0, category);
+            picker.ItemsSource = itemsFromDb;
             picker.SelectedIndex = 0;
         }
 
