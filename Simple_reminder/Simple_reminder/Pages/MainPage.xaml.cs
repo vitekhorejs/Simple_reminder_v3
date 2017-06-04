@@ -14,7 +14,7 @@ namespace Simple_reminder
             InitializeComponent();
             InitDB();
             GetItemsToPicker();
-
+            GetItemsToListView();
             
         }
 
@@ -43,26 +43,30 @@ namespace Simple_reminder
             Navigation.PushModalAsync(new NavigationPage(new AddCategoryPage()));
         }
 
+        private void GetItemsToListView()
+        {
+            List<Reminder> itemsFromDb = Database.GetRemindersAsync().Result;
+            ListView.ItemsSource = itemsFromDb;
+        }
+
         private void GetItemsToPicker()
         {
             List<Category> itemsFromDb = Database.GetCategoriesAsync().Result;
-            //ListView.ItemsSource = itemsFromDb;
             var CategoryList = new List<string>();
             foreach (Category item in itemsFromDb)
             {
-                //item.Name
                 CategoryList.Add(item.Name);
             }
             CategoryList.Insert(0, "Vše");
             picker.ItemsSource = CategoryList;
             picker.SelectedIndex = 0;
-            
-
         }
 
-        private void GetContact(object sender, ItemTappedEventArgs e)
+        private void EditReminder(object sender, ItemTappedEventArgs e)
         {
-           // Navigation.PushModalAsync(new DetailPage(e.Item as Contact));
+            // Navigation.PushModalAsync(new DetailPage(e.Item as Contact));
+            Navigation.PushModalAsync(new NavigationPage(new AddPage(e.Item as Reminder)));
+
         }
 
         public void InitDB()

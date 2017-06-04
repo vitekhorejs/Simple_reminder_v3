@@ -8,6 +8,7 @@ using Android.Widget;
 using Android.OS;
 using Android.Support.V7.App;
 using System.Linq;
+using Xamarin.Forms;
 
 namespace Simple_reminder.Droid
 {
@@ -21,6 +22,8 @@ namespace Simple_reminder.Droid
             //FloatingActionButton = Resource.Layout.Toolbar;
 
             base.OnCreate(bundle);
+
+           
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App());

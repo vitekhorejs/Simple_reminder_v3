@@ -9,17 +9,15 @@
     </ContentPage.ToolbarItems>
 
     <StackLayout>
-        <Picker x:Name="picker" >
-            
-        </Picker>
-        
-        <Button Text="+" Clicked="Add_Button" ></Button>
-        <ListView x:Name="ListView" ItemTapped="GetContact" >
+        <Picker x:Name="picker" Margin="10,0,10,0"></Picker>
+        <Button Text="+" Clicked="Add_Button"  BackgroundColor="Black" TextColor="White" Margin="10,0,10,0"></Button>
+        <ListView x:Name="ListView" ItemTapped="EditReminder" >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <Grid>
-                            <Label Text="{Binding GetName}" FontAttributes="Bold" VerticalTextAlignment="Start"></Label>
+                            <Label Text="{Binding Name}"  VerticalTextAlignment="Start" TextColor="Black" Margin="15,0,10,0" FontSize="Medium"></Label>
+                            
                         </Grid>
                     </ViewCell>
                 </DataTemplate>

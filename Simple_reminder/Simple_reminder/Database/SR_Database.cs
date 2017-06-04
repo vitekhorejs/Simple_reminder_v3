@@ -67,5 +67,10 @@ namespace Simple_reminder
                 return database.InsertAsync(item);
             }
         }
+
+        public Task<Category> GetCategoryById(int Id)
+        {
+            return database.Table<Category>().Where(i => i.Id == Id).FirstOrDefaultAsync();
+        }
     }
 }
