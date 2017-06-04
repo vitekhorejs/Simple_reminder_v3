@@ -8,6 +8,8 @@
         <ToolbarItem Name="Save" Order="Primary" Activated="SaveCategory_Clicked" Text="Uložit" Priority="0" />
     </ContentPage.ToolbarItems>
     <StackLayout>
-        <Label Text="Ahoj1"></Label>
+        <Label x:Name="EntryLabel" Text="Název kategorie" TextColor="Black" Margin="15,10,10,-5" FontSize="Medium"></Label>
+        <Entry x:Name="name" Margin="10,0,10,0"></Entry>
+        <Button x:Name="deleteButton" Text="Odstranit" Clicked="Delete_Button"  BackgroundColor="Black" TextColor="White" Margin="10,0,10,0"></Button>
     </StackLayout>
 </ContentPage>

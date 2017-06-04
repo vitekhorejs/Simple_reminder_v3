@@ -26,6 +26,7 @@ namespace Simple_reminder.Droid
 		
 		public static void UpdateIdValues()
 		{
+			global::Plugin.LocalNotifications.Resource.Drawable.plugin_lc_smallicon = global::Simple_reminder.Droid.Resource.Drawable.plugin_lc_smallicon;
 			global::com.refractored.fab.Resource.Attribute.fab_colorDisabled = global::Simple_reminder.Droid.Resource.Attribute.fab_colorDisabled;
 			global::com.refractored.fab.Resource.Attribute.fab_colorNormal = global::Simple_reminder.Droid.Resource.Attribute.fab_colorNormal;
 			global::com.refractored.fab.Resource.Attribute.fab_colorPressed = global::Simple_reminder.Droid.Resource.Attribute.fab_colorPressed;
@@ -2277,8 +2278,11 @@ namespace Simple_reminder.Droid
 			// aapt resource value: 0x7f0200a2
 			public const int mr_ic_play_light = 2130837666;
 			
+			// aapt resource value: 0x7f0200a4
+			public const int notification_template_icon_bg = 2130837668;
+			
 			// aapt resource value: 0x7f0200a3
-			public const int notification_template_icon_bg = 2130837667;
+			public const int plugin_lc_smallicon = 2130837667;
 			
 			static Drawable()
 			{

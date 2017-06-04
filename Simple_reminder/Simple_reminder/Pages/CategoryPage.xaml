@@ -1,27 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:Simple_reminder"
-             x:Class="Simple_reminder.MainPage"
-             Title="Simple Reminder">
+             x:Class="Simple_reminder.CategoryPage"
+             Title="Kategorie">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Name="AddCategory" Order="Primary" Activated="Category_Clicked" Text="Spravovat kategorie" Priority="0" />
+        <ToolbarItem Name="Back" Order="Primary" Activated="Back_Clicked" Text="Zpět" Priority="0" />
     </ContentPage.ToolbarItems>
 
     <StackLayout>
-        <Picker x:Name="picker" Margin="10,0,10,0"></Picker>
-        <Button Text="+" Clicked="Add_Button"  BackgroundColor="Black" TextColor="White" Margin="10,0,10,0"></Button>
-        <ListView x:Name="ListView" ItemTapped="EditReminder" >
+        <Button Text="Přidat kategorii" Clicked="AddCategory_Button"  BackgroundColor="Black" TextColor="White" Margin="10,0,10,0"></Button>
+        <ListView x:Name="ListView" ItemTapped="EditCategory" >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <Grid>
                             <Label Text="{Binding Name}"  VerticalTextAlignment="Start" TextColor="Black" Margin="15,0,10,0" FontSize="Medium"></Label>
-                            
+
                         </Grid>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
     </StackLayout>
+
 </ContentPage>

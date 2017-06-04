@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Plugin.LocalNotifications;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,6 +22,7 @@ namespace Simple_reminder
             InitializeComponent();
             GetItemsToPicker();
             Time.Time = DateTime.Now.TimeOfDay;
+            deleteButton.IsVisible = false;
         }
         public AddPage(Reminder reminder)
         {
@@ -126,6 +128,8 @@ namespace Simple_reminder
                     reminder.DateTime = Date.Date + Time.Time;
                     Database.SaveItemAsync(reminder);
                     DependencyService.Get<IPopUp>().ShowToast("Událost uložena");
+                    CrossLocalNotifications.Current.Show(reminder.Name, reminder.Description, reminder.Id, reminder.DateTime);
+                    //LocalNotificationsImplementation.NotificationIconId = Resrouce.Drawable.YOU_ICON_HERE;
                     Navigation.PushModalAsync(new NavigationPage(new MainPage()));
                 }
                 

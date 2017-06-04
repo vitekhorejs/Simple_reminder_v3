@@ -13,7 +13,7 @@
         <TimePicker x:Name="Time" Margin="10,0,10,0"></TimePicker>
         <Label x:Name="DescriptionLabel" Text="Popis" TextColor="Black" Margin="15,10,10,-5" FontSize="Medium"></Label>
         <Editor x:Name="Description" Margin="10,0,10,0"></Editor>
-        <Button Text="Odstranit" Clicked="Delete_Button"  BackgroundColor="Black" TextColor="White" Margin="10,0,10,0"></Button>
+        <Button x:Name="deleteButton" Text="Odstranit" Clicked="Delete_Button"  BackgroundColor="Black" TextColor="White" Margin="10,0,10,0"></Button>
     </StackLayout>
 
     <ContentPage.ToolbarItems>

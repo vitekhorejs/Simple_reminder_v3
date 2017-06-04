@@ -39,9 +39,9 @@ namespace Simple_reminder
             Navigation.PushModalAsync(new NavigationPage(new AddPage()));
         }
 
-        public void AddCategory_Clicked(Object sender, EventArgs e)
+        public void Category_Clicked(Object sender, EventArgs e)
         {
-            Navigation.PushModalAsync(new NavigationPage(new AddCategoryPage()));
+            Navigation.PushModalAsync(new NavigationPage(new CategoryPage()));
         }
 
         private void GetItemsToListView()
