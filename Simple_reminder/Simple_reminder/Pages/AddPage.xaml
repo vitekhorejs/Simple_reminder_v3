@@ -11,6 +11,18 @@
         </Picker>
         <DatePicker x:Name="Date" Margin="10,0,10,0"></DatePicker>
         <TimePicker x:Name="Time" Margin="10,0,10,0"></TimePicker>
+        <Grid Margin="15,0,11,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25" ></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label  Text="Povolit upozornění" TextColor="Black"  FontSize="Medium"></Label>
+           <Switch x:Name="switch_allowed" Grid.Row="0" Grid.Column="1"></Switch>
+
+        </Grid>
         <Label x:Name="DescriptionLabel" Text="Popis" TextColor="Black" Margin="15,10,10,-5" FontSize="Medium"></Label>
         <Editor x:Name="Description" Margin="10,0,10,0"></Editor>
         <Button x:Name="deleteButton" Text="Odstranit" Clicked="Delete_Button"  BackgroundColor="Black" TextColor="White" Margin="10,0,10,0"></Button>

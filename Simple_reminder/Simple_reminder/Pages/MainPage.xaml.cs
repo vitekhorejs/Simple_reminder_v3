@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using Plugin.LocalNotifications;
 
 namespace Simple_reminder
 {
@@ -15,10 +16,7 @@ namespace Simple_reminder
             InitDB();
             GetItemsToPicker();
             //GetItemsToListView();
-
-
         }
-
 
         private static SR_Database _database;
 
@@ -34,6 +32,28 @@ namespace Simple_reminder
             }
         }
 
+        public void SwitchToggled(Object sender, EventArgs e)
+        {
+            /*Switch svitch = sender as Switch;
+            ListView listv = svitch.Parent.Parent.ParentView as ListView;
+            Reminder rem = listv.ItemsSource[0] as Reminder;
+            //Reminder rem = ListView as Reminder;
+            DependencyService.Get<IPopUp>().ShowToast(rem.Name);
+            if (svitch.IsToggled == true)
+            {
+                DependencyService.Get<IPopUp>().ShowToast("jo");
+                //reminder.Allowed = true;
+                //CrossLocalNotifications.Current.Show(reminder.Name, reminder.Description, reminder.Id, reminder.DateTime);
+            }
+            else
+            {
+                DependencyService.Get<IPopUp>().ShowToast("ne");
+                //reminder.Allowed = false;
+                //CrossLocalNotifications.Current.Cancel(reminder.Id);
+            }*/
+            
+        }
+
         public void OnPickerChanged(Object sender, EventArgs e)
         {
             Category category = picker.SelectedItem as Category;
@@ -45,12 +65,10 @@ namespace Simple_reminder
             }
             else
             {
-                
                 //DependencyService.Get<IPopUp>().ShowToast(category.SelectedItem.ToString());
                 List<Reminder> itemsFromDb = Database.GetReminderByCategoryId(category.Id).Result;
                 ListView.ItemsSource = itemsFromDb;
-            }
-            
+            }     
         }
 
         public void Add_Button(Object sender, EventArgs e)
@@ -72,11 +90,6 @@ namespace Simple_reminder
         private void GetItemsToPicker()
         {
             List<Category> itemsFromDb = Database.GetCategoriesAsync().Result;
-            /*var CategoryList = new List<string>();
-            foreach (Category item in itemsFromDb)
-            {
-                CategoryList.Add(item.Name);
-            }*/
             Category category = new Category();
             category.Name = "Vše";
             itemsFromDb.Insert(0, category);
@@ -86,9 +99,7 @@ namespace Simple_reminder
 
         private void EditReminder(object sender, ItemTappedEventArgs e)
         {
-            // Navigation.PushModalAsync(new DetailPage(e.Item as Contact));
             Navigation.PushModalAsync(new NavigationPage(new AddPage(e.Item as Reminder)));
-
         }
 
         public void InitDB()

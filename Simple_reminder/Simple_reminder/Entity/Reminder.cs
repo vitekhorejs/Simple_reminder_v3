@@ -15,6 +15,6 @@ namespace Simple_reminder
         public string Description { get; set; }
         public DateTime DateTime { get; set; }
         public int Category_Id { get; set; }
-        
+        public bool Allowed { get; set; } 
     }
 }

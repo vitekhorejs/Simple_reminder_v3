@@ -49,9 +49,7 @@ namespace Simple_reminder
 
         private void EditCategory(object sender, ItemTappedEventArgs e)
         {
-            // Navigation.PushModalAsync(new DetailPage(e.Item as Contact));
             Navigation.PushModalAsync(new NavigationPage(new AddCategoryPage(e.Item as Category)));
-
         }
     }
 }

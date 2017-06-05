@@ -24,24 +24,21 @@ namespace Simple_reminder
             Time.Time = DateTime.Now.TimeOfDay;
             deleteButton.IsVisible = false;
         }
+
         public AddPage(Reminder reminder)
         {
             InitializeComponent();
-            
             obj = reminder;
             Id = reminder.Id;
             name.Text = reminder.Name;
             Cat_Id = reminder.Category_Id;
-           // itemFromDb = Database.GetCategoryById(reminder.Category_Id).Result;
-
-
-            //Category.SelectedItem = itemFromDb.GetName;
-            //Category.SelectedItem = itemsFromDb.Where(p => p.ProjectID == 2).First();
             Date.Date = reminder.DateTime;
             Time.Time = reminder.DateTime.TimeOfDay;
             Description.Text = reminder.Description;
+            switch_allowed.IsToggled = reminder.Allowed;
             GetItemsToPicker();
         }
+
         private static SR_Database _database;
 
         public static SR_Database Database
@@ -66,40 +63,23 @@ namespace Simple_reminder
                 await Navigation.PushModalAsync(new NavigationPage(new MainPage()));
             }
             else
-            {
-
-            }
-            //Database.DeleteItemAsync(obj as Reminder);
+            { }
         }
 
         private void GetItemsToPicker()
         {
-            /*List<Category> itemsFromDb = Database.GetCategoriesAsync().Result;
-            var CategoryList = new List<string>();
-            foreach (Category item in itemsFromDb)
-            {
-                CategoryList.Add(item.Name);
-            }
-            //CategoryList.Insert(0, "Vše");
-            Category.ItemsSource = CategoryList;
-            Category.SelectedIndex = 0;*/
-
             var itemsFromDb = Database.GetCategoriesAsync().Result;
             Category.ItemsSource = itemsFromDb;
             if (Cat_Id.Equals(0))
-            {
-
-            }
+            { }
             else
             {
                 Category.SelectedItem = itemsFromDb.Where(p => p.Id == Cat_Id).First();
-            }
-            
+            }      
         }
 
         public void Save_Clicked(Object sender, EventArgs e)
-        {
-            
+        {   
             if (Category.SelectedItem == null)
             {
                 DependencyService.Get<IPopUp>().ShowToast("Vyberte Kategorii");
@@ -115,9 +95,7 @@ namespace Simple_reminder
                     Category neco = Category.SelectedItem as Category;
                     Reminder reminder = new Reminder();
                     if (Id.Equals(null))
-                    {
-
-                    }
+                    { }
                     else
                     {
                         reminder.Id = Id;
@@ -126,34 +104,21 @@ namespace Simple_reminder
                     reminder.Category_Id = neco.Id;
                     reminder.Description = Description.Text;
                     reminder.DateTime = Date.Date + Time.Time;
+                    if (switch_allowed.IsToggled == true)
+                    {
+                        reminder.Allowed = true;
+                        CrossLocalNotifications.Current.Show(reminder.Name, reminder.Description, reminder.Id, reminder.DateTime);
+                    } else
+                    {
+                        reminder.Allowed = false;
+                        CrossLocalNotifications.Current.Cancel(reminder.Id);
+                    }
                     Database.SaveItemAsync(reminder);
                     DependencyService.Get<IPopUp>().ShowToast("Událost uložena");
-                    CrossLocalNotifications.Current.Show(reminder.Name, reminder.Description, reminder.Id, reminder.DateTime);
-                    //LocalNotificationsImplementation.NotificationIconId = Resrouce.Drawable.YOU_ICON_HERE;
                     Navigation.PushModalAsync(new NavigationPage(new MainPage()));
                 }
-                
-
-
                 //DependencyService.Get<IPopUp>().ShowToast(reminder.DateTime.ToString("HH:mm d. MMMM, yyyy"));
             }
-
-
-
-            //DependencyService.Get<IPopUp>().ShowToast(neco.Id.ToString());
-
-            //var itemsFromDb = Database.GetCategoryById(neco.Id).Result;
-            //DescriptionLabel.Text = itemsFromDb.Name;
-
-
-
-            //string categoryId = Category.Items[Category.SelectedIndex];
-            //name.Text = categoryId;
-
-            //Database.SaveItemAsync(category1);
-
-
-
         }
 
         public void Back_Clicked(Object sender, EventArgs e)

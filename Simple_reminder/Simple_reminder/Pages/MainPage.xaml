@@ -9,14 +9,27 @@
     </ContentPage.ToolbarItems>
 
     <StackLayout>
+        <Label x:Name="pickerLabel" Text="Kategorie"  Margin="15,5,10,-10" ></Label>
         <Picker x:Name="picker" Margin="10,0,10,0" SelectedIndexChanged="OnPickerChanged" ItemDisplayBinding="{Binding Name}"></Picker>
         <Button Text="+" Clicked="Add_Button"  BackgroundColor="Black" TextColor="White" Margin="10,0,10,0"></Button>
         <ListView x:Name="ListView" ItemTapped="EditReminder" >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <Grid>
-                            <Label Text="{Binding Name}"  VerticalTextAlignment="Start" TextColor="Black" Margin="15,0,10,0" FontSize="Medium"></Label>
+                        <Grid Margin="15,5,10,-5" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="25" ></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"></ColumnDefinition>
+                                <ColumnDefinition Width="auto"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding Name}" Grid.Row="0" Grid.Column="2"  TextColor="Black"  FontSize="Medium"></Label>
+                            <Label Text="-" Grid.Row="0" Grid.Column="1"  TextColor="Black"  FontSize="Medium"></Label>
+                            <Label Text="{Binding DateTime , StringFormat=\{0:ddd d.M. H:mm\}}" Grid.Row="0" Grid.Column="0"   TextColor="Black" FontSize="Medium"></Label>
+                            <Switch x:Name="Switch_allowed" Grid.Row="0" Grid.Column="3" IsToggled="{Binding Allowed}" Toggled="SwitchToggled"></Switch>
                             
                         </Grid>
                     </ViewCell>

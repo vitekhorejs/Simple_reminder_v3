@@ -52,22 +52,18 @@ namespace Simple_reminder
                 //Category neco = Category.SelectedItem as Category;
                 Category category = new Category();
                 if (Id.Equals(null))
-                {
-
-                }
+                { }
                 else
                 {
                     category.Id = Id;
                 }
                 category.Name = name.Text;
-                //reminder.Category_Id = neco.Id;
-                //reminder.Description = Description.Text;
-                //reminder.DateTime = Date.Date + Time.Time;
                 Database.SaveItemAsync(category);
                 DependencyService.Get<IPopUp>().ShowToast("Kategorie uložena");
                 Navigation.PushModalAsync(new NavigationPage(new CategoryPage()));
             }
         }
+
         public void Back_Clicked(Object sender, EventArgs e)
         {
             Navigation.PushModalAsync(new NavigationPage(new CategoryPage()));
@@ -88,14 +84,10 @@ namespace Simple_reminder
                 else
                 {
                     await DisplayAlert("Upozornění", "Nelze smazat kategorii, ke které jsou přiřazeny události", "Rozumím");
-                }
-                
+                }              
             }
             else
-            {
-
-            }
-            //Database.DeleteItemAsync(obj as Reminder);
+            { }
         }
     }
 }
