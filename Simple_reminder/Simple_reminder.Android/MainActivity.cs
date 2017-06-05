@@ -26,10 +26,12 @@ namespace Simple_reminder.Droid
             LoadApplication(new App());
         }
 
-        public override void OnBackPressed()
-        {
 
-        }
+        /*public override void OnBackPressed()
+        {
+            //base.OnBackPressed();
+            
+        }*/
 
     }
 }

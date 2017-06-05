@@ -3,9 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Simple_reminder.CategoryPage"
              Title="Kategorie">
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Name="Back" Order="Primary" Activated="Back_Clicked" Text="Zpět" Priority="0" />
-    </ContentPage.ToolbarItems>
 
     <StackLayout>
         <Button Text="Přidat kategorii" Clicked="AddCategory_Button"  BackgroundColor="Black" TextColor="White" Margin="10,0,10,0"></Button>

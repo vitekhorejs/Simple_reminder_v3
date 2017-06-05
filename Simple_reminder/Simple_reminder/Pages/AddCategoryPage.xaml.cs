@@ -60,13 +60,15 @@ namespace Simple_reminder
                 category.Name = name.Text;
                 Database.SaveItemAsync(category);
                 DependencyService.Get<IPopUp>().ShowToast("Kategorie uložena");
-                Navigation.PushModalAsync(new NavigationPage(new CategoryPage()));
+                //Navigation.PushModalAsync(new NavigationPage(new CategoryPage()));
+                //Navigation.PushAsync(new CategoryPage());
+                Navigation.RemovePage(this);
             }
         }
 
         public void Back_Clicked(Object sender, EventArgs e)
         {
-            Navigation.PushModalAsync(new NavigationPage(new CategoryPage()));
+            //Navigation.PushModalAsync(new NavigationPage(new CategoryPage()));
         }
 
         async private void Delete_Button(object sender, EventArgs e)
@@ -79,7 +81,9 @@ namespace Simple_reminder
                 {
                     await Database.DeleteItemAsync(obj as Category);
                     DependencyService.Get<IPopUp>().ShowToast("Kategorie smazána");
-                    await Navigation.PushModalAsync(new NavigationPage(new CategoryPage()));
+                    //await Navigation.PushModalAsync(new NavigationPage(new CategoryPage()));
+                    //await Navigation.PushAsync(new CategoryPage());
+                    Navigation.RemovePage(this);
                 }
                 else
                 {

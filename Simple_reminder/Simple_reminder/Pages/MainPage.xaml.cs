@@ -73,12 +73,15 @@ namespace Simple_reminder
 
         public void Add_Button(Object sender, EventArgs e)
         {
-            Navigation.PushModalAsync(new NavigationPage(new AddPage()));
+            Navigation.PushAsync(new AddPage());
+            //Navigation.InsertPageBefore(new NavigationPage(), this);
+            //Navigation.PopAsync();
         }
 
         public void Category_Clicked(Object sender, EventArgs e)
         {
-            Navigation.PushModalAsync(new NavigationPage(new CategoryPage()));
+            Navigation.PushAsync(new CategoryPage());
+            //Navigation.PushModalAsync(new NavigationPage(new CategoryPage()));
         }
 
         private void GetItemsToListView()

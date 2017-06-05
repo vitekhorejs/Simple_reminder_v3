@@ -44,12 +44,15 @@ namespace Simple_reminder
 
         public void AddCategory_Button(Object sender, EventArgs e)
         {
-            Navigation.PushModalAsync(new NavigationPage(new AddCategoryPage()));
+            Navigation.PushAsync(new AddCategoryPage());
+            //Navigation.PushModalAsync(new NavigationPage(new AddCategoryPage()));
         }
 
         private void EditCategory(object sender, ItemTappedEventArgs e)
         {
-            Navigation.PushModalAsync(new NavigationPage(new AddCategoryPage(e.Item as Category)));
+            Navigation.PushAsync(new AddCategoryPage(e.Item as Category));
+            
+            //Navigation.PushModalAsync(new NavigationPage(new AddCategoryPage(e.Item as Category)));
         }
     }
 }

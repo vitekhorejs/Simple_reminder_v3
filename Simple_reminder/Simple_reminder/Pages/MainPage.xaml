@@ -5,7 +5,7 @@
              x:Class="Simple_reminder.MainPage"
              Title="Simple Reminder">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Name="AddCategory" Order="Primary" Activated="Category_Clicked" Text="Spravovat kategorie" Priority="0" />
+        <ToolbarItem Name="AddCategory" Order="Primary" Activated="Category_Clicked" Text="Upravit kategorie" Priority="0" />
     </ContentPage.ToolbarItems>
 
     <StackLayout>

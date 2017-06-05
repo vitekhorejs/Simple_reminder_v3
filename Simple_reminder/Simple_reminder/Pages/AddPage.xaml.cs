@@ -124,7 +124,8 @@ namespace Simple_reminder
 
         public void Back_Clicked(Object sender, EventArgs e)
         {
-            Navigation.PushModalAsync(new NavigationPage(new MainPage()));
+
+            //Navigation.PushModalAsync(new NavigationPage(new MainPage()));
         }
     }
 }
