@@ -23,6 +23,7 @@ namespace Simple_reminder
             GetItemsToPicker();
             Time.Time = DateTime.Now.TimeOfDay;
             deleteButton.IsVisible = false;
+            switch_allowed.IsToggled = true;
         }
 
         public AddPage(Reminder reminder)
