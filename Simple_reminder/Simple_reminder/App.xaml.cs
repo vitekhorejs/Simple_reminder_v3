@@ -34,7 +34,46 @@ namespace Simple_reminder
             // Handle when your app resumes
         }
 
-        
+        /*public static bool IsRootPage { get; set{ } }
+        public void IsRootPageMethod()
+        {
+            var name = this.GetType().Name;
+            if (name == "MainPage")
+            {
+                IsRootPage = true;
+            }
+            else
+            {
+                IsRootPage = false;
+            }
+        }*/
 
+        /*private bool isMainPage()
+        {
+            //Navigation
+            //var name = this.GetType().Name;
+            var page = App.Navigation.NavigationStack.Last();
+            //return page.Title;
+            if (name == "MainPage")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public static bool IsMainPage
+        {
+            get
+            {
+                App mp = new App();
+                return mp.isMainPage();
+            }
+            set
+            {
+                IsMainPage = value;
+            }
+        }*/
     }
 }

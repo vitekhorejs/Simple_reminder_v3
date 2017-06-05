@@ -102,7 +102,8 @@ namespace Simple_reminder
 
         private void EditReminder(object sender, ItemTappedEventArgs e)
         {
-            Navigation.PushModalAsync(new NavigationPage(new AddPage(e.Item as Reminder)));
+            //Navigation.PushModalAsync(new NavigationPage(new AddPage(e.Item as Reminder)));
+            Navigation.PushAsync(new AddPage(e.Item as Reminder));
         }
 
         public void InitDB()

@@ -62,6 +62,7 @@ namespace Simple_reminder
                 DependencyService.Get<IPopUp>().ShowToast("Kategorie uložena");
                 //Navigation.PushModalAsync(new NavigationPage(new CategoryPage()));
                 //Navigation.PushAsync(new CategoryPage());
+                Navigation.InsertPageBefore(new CategoryPage(), this);
                 Navigation.RemovePage(this);
             }
         }

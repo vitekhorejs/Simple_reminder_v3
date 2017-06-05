@@ -15,6 +15,7 @@ namespace Simple_reminder
         {
             InitializeComponent();
             GetItemsToListView();
+            //CategoryPage.
         }
 
         private static SR_Database _database;
@@ -50,8 +51,10 @@ namespace Simple_reminder
 
         private void EditCategory(object sender, ItemTappedEventArgs e)
         {
-            Navigation.PushAsync(new AddCategoryPage(e.Item as Category));
             
+            Navigation.PushAsync(new AddCategoryPage(e.Item as Category));
+            //Navigation.RemovePage(this);
+
             //Navigation.PushModalAsync(new NavigationPage(new AddCategoryPage(e.Item as Category)));
         }
     }

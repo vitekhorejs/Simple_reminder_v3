@@ -26,13 +26,34 @@ namespace Simple_reminder.Droid
             LoadApplication(new App());
         }
 
+        /*private double _backPressTime = 0;
 
-        /*public override void OnBackPressed()
+        public override void OnBackPressed()
         {
-            //base.OnBackPressed();
+
+            //Toast.MakeText(this, Android.App.Application.Context.ToString(), ToastLength.Short);
+            if (App.IsMainPage == true)
+            {
+                
+                double t = new TimeSpan(DateTime.Now.Ticks).TotalMilliseconds;
+
+                if (t - _backPressTime > 2000) // i.e. 2000 milliseconds
+                {
+                    _backPressTime = t;
+                    Toast.MakeText(this, "Stiskněte znovu pro ukončení", ToastLength.Short)
+                        .Show();
+                }
+                else
+                {
+                    base.OnBackPressed(); // now we can quit
+                }
+            }
+            else
+            {
+                base.OnBackPressed();
+            }
             
         }*/
-
     }
 }
 

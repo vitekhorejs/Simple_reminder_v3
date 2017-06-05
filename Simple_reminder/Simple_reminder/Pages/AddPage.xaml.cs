@@ -116,7 +116,10 @@ namespace Simple_reminder
                     }
                     Database.SaveItemAsync(reminder);
                     DependencyService.Get<IPopUp>().ShowToast("Událost uložena");
-                    Navigation.PushModalAsync(new NavigationPage(new MainPage()));
+                    //Navigation.PushModalAsync(new NavigationPage(new MainPage()));
+                    //Navigation.RemovePage(this);
+                    Navigation.PushAsync(new MainPage());
+                    Navigation.RemovePage(this);
                 }
                 //DependencyService.Get<IPopUp>().ShowToast(reminder.DateTime.ToString("HH:mm d. MMMM, yyyy"));
             }
